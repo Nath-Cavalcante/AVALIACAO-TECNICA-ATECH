@@ -1,0 +1,25 @@
+// Função
+function calculeLotacao(N, E, S) {
+    let maximo = 0;
+
+// Teste de tempo
+    for (let tempo = 1; tempo <= 1000; tempo++) {
+        let passageiroAgora = 0;
+        for (let i = 0; i < N; i++) {
+            if (tempo >= E[i] && tempo < S[i]) {
+                passageiroAgora++;
+            }
+        }
+        
+        if (passageiroAgora > maximo) {
+            maximo = passageiroAgora;
+        }
+    } 
+    return maximo;
+}
+// Lógica para ler os dados
+
+const N = 3;
+const E = [1, 5, 7];
+const S = [9, 13, 12];
+console.log(calculeLotacao(N, E, S));
