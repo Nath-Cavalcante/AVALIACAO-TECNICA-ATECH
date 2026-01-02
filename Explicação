@@ -1,0 +1,17 @@
+# AVALIACAO-TECNICA-ATECH
+TESTE DE AVALIAÇÃO TÉCNICA DE PROGRAMADOR DE SOFTWARE –  MANUTENÇÃO
+
+Explicação Técnica 
+O algoritmo utiliza uma abordagem de força bruta linear sobre o domínio do tempo. Dado que o intervalo de tempo é fixo e pequeno ($1$ a $1000$), iteramos sobre cada unidade de tempo $t$ e verificamos quantos intervalos $[E_i, S_i)$ contêm $t$.
+Lógica de Intervalo: Para respeitar a regra de que "entrada simultânea à saída não soma passageiro", tratamos o intervalo como fechado à esquerda e aberto à direita. Ou seja, um passageiro está presente se $E_i \le t < S_i$.
+Complexidade: A complexidade de tempo é $O(T \cdot N)$, onde $T$ é o valor máximo do tempo (1000) e $N$ é o número de passageiros. Para $N \le 100$, o desempenho é instantâneo.
+Estrutura: O algoritmo compara a contagem de cada instante com uma variável global maximo, atualizando-a sempre que um novo pico de ocupação é encontrado.
+
+Explicação Leiga
+Imagine que temos um relógio que marca de 1 a 1000. Para descobrir qual foi o momento de maior lotação na sala, o sistema faz o seguinte:
+Ele olha para o relógio no "segundo 1" e conta quantas pessoas estavam lá.
+Depois, olha para o "segundo 2" e conta novamente.
+Ele repete isso para todos os momentos até chegar ao 1000.
+O sistema anota qual foi o maior número que ele encontrou durante toda essa contagem.
+
+Regra importante: Se o "Passageiro A" sai exatamente no momento em que o "Passageiro B" entra, o sistema entende que eles não se esbarraram na sala, contando apenas uma pessoa naquele instante. Isso garante que o cálculo da capacidade da sala não seja exagerado.
